@@ -17,6 +17,14 @@ dependencies: [
 
 ## Usage
 
+```swift
+var body: some View {
+    // Text size is expand to it's container
+    Text("Hello")
+        .dimensionsProposed(width: .container(0), height: .container(0))
+}
+```
+
 ### For size
 
 There are 3 type of proposal: 
@@ -127,7 +135,7 @@ Examples:
 │          ┃                 ┃                      │
 │          ┗━━━━━━━━━━━━━━━━━┛                      │
 └───────────────────────────────────────────────────┘
-``` 
+```
 
 ### For constant
 
