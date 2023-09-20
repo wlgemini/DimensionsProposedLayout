@@ -39,7 +39,7 @@ There are 3 type of proposal:
 │ width = .container                          │
 │⇠┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄(200)┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄⇢│
 │                                             │
-│ width = .proposed(100)                      │
+│ width = .proposed(150)                      │
 │⇠┄┄┄┄┄┄┄┄┄┄┄┄(150)┄┄┄┄┄┄┄┄┄┄┄┄┄⇢             │
 │                                             │
 │ width = .sizeThatFits                       │
