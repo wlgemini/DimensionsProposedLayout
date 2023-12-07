@@ -2,19 +2,6 @@
 
 An implementation of SwiftUI `Layout` protocol that arrange a view’s size and alignment in its own coordinate space.
 
-## Requirements
-
-- iOS 16.0+, macOS 13.0+, tvOS 16.0+, watchOS 9.0+
-
-## Installation
-### Swift Package Manager
-
-```swift
-dependencies: [
-    .package(url: "https://github.com/wlgemini/DimensionsProposedLayout.git", .upToNextMajor(from: "1.0.0"))
-]
-```
-
 ## Usage
 
 ```swift
@@ -142,9 +129,18 @@ Examples:
 
 Every proposal has a `constant` for adjustment.
 
-## Author
+## Requirements
 
-wlgemini, wangluguang@live.com
+- iOS 16.0+, macOS 13.0+, tvOS 16.0+, watchOS 9.0+
+
+## Installation
+### Swift Package Manager
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/wlgemini/DimensionsProposedLayout.git", .upToNextMajor(from: "1.0.0"))
+]
+```
 
 ## License
 
