@@ -4,8 +4,8 @@ import SwiftUI
 // MARK: - Designated
 extension View {
     
-    public func dimensionsProposed(width: SizeProposal = .sizeThatFits(),
-                                   height: SizeProposal = .sizeThatFits(),
+    public func dimensionsProposed(width: WidthProposal = .sizeThatFits(),
+                                   height: HeightProposal = .sizeThatFits(),
                                    horizontal: HorizontalAlignmentProposal = .center(),
                                    vertical: VerticalAlignmentProposal = .center(),
                                    anchor: UnitPoint = .center) -> some View {

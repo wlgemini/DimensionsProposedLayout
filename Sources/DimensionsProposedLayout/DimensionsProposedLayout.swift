@@ -3,14 +3,14 @@ import SwiftUI
 
 struct DimensionsProposedLayout: Layout {
     
-    let width: SizeProposal
-    let height: SizeProposal
+    let width: WidthProposal
+    let height: HeightProposal
     let horizontal: HorizontalAlignmentProposal
     let vertical: VerticalAlignmentProposal
     let anchor: UnitPoint
     
-    init(width: SizeProposal = .sizeThatFits(),
-         height: SizeProposal = .sizeThatFits(),
+    init(width: WidthProposal = .sizeThatFits(),
+         height: HeightProposal = .sizeThatFits(),
          horizontal: HorizontalAlignmentProposal = .center(0),
          vertical: VerticalAlignmentProposal = .center(0),
          anchor: UnitPoint = .center) {
@@ -25,33 +25,32 @@ struct DimensionsProposedLayout: Layout {
         assert(subviews.count == 1)
         
         // sizeThatFits
-        let subviewSize: CGSize = subviews[0].sizeThatFits(proposal)
+        let subviewSizeThatFits: CGSize = subviews[0].sizeThatFits(proposal)
         
         // width
         let width: Double
         switch self.width._proposal {
-        case .container(let constant, let multiply):
-            width = (proposal.width ?? 0) * multiply + constant
+        case .proposed(let size):
+            width = size
             
-        case .proposed(let constant):
-            width = constant
+        case .sizeThatFits(let size):
+            width = size(subviewSizeThatFits)
             
-        case .sizeThatFits(let constant, let multiply):
-            width = subviewSize.width * multiply + constant
+        case .container(let size):
+            width = size(proposal)
         }
         
         // height
         let height: Double
         switch self.height._proposal {
-        case .container(let constant, let multiply):
-            height = (proposal.height ?? 0) * multiply + constant
+        case .proposed(let size):
+            height = size
             
-        case .proposed(let constant):
-            height = constant
+        case .sizeThatFits(let size):
+            height = size(subviewSizeThatFits)
             
-        case .sizeThatFits(let constant, let multiply):
-            height = subviewSize.height * multiply + constant
-            
+        case .container(let size):
+            height = size(proposal)
         }
         
         return CGSize(width: width, height: height)
