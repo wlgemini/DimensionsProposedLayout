@@ -15,9 +15,8 @@ public struct WidthProposal: SizeProposal {
     }
     
     // MARK: SizeThatFits
-    @inlinable
     public static func sizeThatFits(_ size: CGFloat = 0, multiply: CGFloat = 1) -> Self {
-        Self.sizeThatFits { size + multiply * $0.width }
+        WidthProposal(.sizeThatFits { size + multiply * $0.width })
     }
     
     public static func sizeThatFits(_ size: @escaping (CGSize) -> CGFloat) -> Self {
@@ -25,9 +24,8 @@ public struct WidthProposal: SizeProposal {
     }
     
     // MARK: - Container
-    @inlinable
     public static func container(_ size: CGFloat = 0, multiply: CGFloat = 1) -> Self {
-        Self.container { size + multiply * ($0.width ?? 0) }
+        WidthProposal(.container { size + multiply * ($0.width ?? 0) })
     }
     
     public static func container(_ size: @escaping (ProposedViewSize) -> CGFloat) -> Self {
@@ -42,7 +40,7 @@ public struct WidthProposal: SizeProposal {
     }
 }
 
-public struct HeightProposal {
+public struct HeightProposal: SizeProposal {
     
     // MARK: Proposed
     public static func proposed(_ size: CGFloat) -> Self {
@@ -50,9 +48,8 @@ public struct HeightProposal {
     }
     
     // MARK: SizeThatFits
-    @inlinable
     public static func sizeThatFits(_ size: CGFloat = 0, multiply: CGFloat = 1) -> Self {
-        Self.sizeThatFits { size + multiply * $0.height }
+        HeightProposal(.sizeThatFits { size + multiply * $0.height })
     }
     
     public static func sizeThatFits(_ size: @escaping (CGSize) -> CGFloat) -> Self {
@@ -60,9 +57,8 @@ public struct HeightProposal {
     }
     
     // MARK: - Container
-    @inlinable
     public static func container(_ size: CGFloat = 0, multiply: CGFloat = 1) -> Self {
-        Self.container { size + multiply * ($0.height ?? 0) }
+        HeightProposal(.container { size + multiply * ($0.height ?? 0) })
     }
     
     public static func container(_ size: @escaping (ProposedViewSize) -> CGFloat) -> Self {
